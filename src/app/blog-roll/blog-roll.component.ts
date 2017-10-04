@@ -1,12 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { BlogService } from '../shared';
+import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../shared/blog/blog.service';
 import { Entry } from '../entry';
+import {OnlineService} from "../shared/online/online.service"; 
 
 @Component({
     selector: 'blog-roll',
     templateUrl: './blog-roll.component.html',
     styleUrls: ['./blog-roll.component.css'],
-    providers: [BlogService]
+    providers: [BlogService, OnlineService]
 })
 export class BlogRollComponent implements OnInit {
     entries: Array<Entry>;
@@ -14,17 +15,15 @@ export class BlogRollComponent implements OnInit {
     end: number;
     emptyEntries: boolean;
 
-    @Input() onState: boolean;
-
-    constructor(private blogService: BlogService) { this.entries = []; this.start = 0; this.end = 5; this.emptyEntries = false; }
+    constructor(private blogService: BlogService, private onlineService: OnlineService) { this.entries = []; this.start = 0; this.end = 5; this.emptyEntries = false; }
 
     ngOnInit() {
         this.getEntries();
     }
 
-    load() {
+    loadMore() {
 
-        if (this.onState) {
+        if (this.onlineService.online) {
             this.start = this.start + 5;
             this.end = this.end + 5;
 
