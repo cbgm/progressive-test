@@ -1,14 +1,18 @@
-<div id="toolbar" style="padding-top: 20px; padding-bottom: 20px; background:blue;">
-	<div id="toolbar-content" style="display: flex;">
-		<span id="title" style="font-size: 1.3em; color: white; float: left;">{{title}}</span>
-		<div id="navigation" style="float: left; margin-left: 50px; display: flex;">
-			<span routerLink="/blog" routerLinkActive="active" style="color:white; margin-right: 10px; align-self: flex-end;">test1</span>
-			<span routerLink="/about" routerLinkActive="active" style="color:white; align-self: flex-end;">test2</span>
-			<span style="color:white; align-self: flex-end;" *ngIf="!(isConnected | async)">offline</span>
+<div id="wrapper">
+	<md-progress-bar mode="indeterminate" *shellRender></md-progress-bar>
+	<div id="header" style="padding-left: 10px; padding-right: 10px; background: blue;">
+		<div id="navigation" style="padding-top: 20px; padding-bottom: 20px; display: flex;">
+			<span id="title" style="font-size: 1.3em; color: white; float: left;">{{title}}</span>
+			<div id="links" style="float: left; margin-left: 50px; display: flex;">
+				<span routerLink="/blog" routerLinkActive="active" style="color:white; margin-right: 10px; align-self: flex-end;">test1</span>
+				<span routerLink="/about" routerLinkActive="active" style="color:white; align-self: flex-end;">test2</span>
+				<span style="color:white; align-self: flex-end;" *ngIf="!(isConnected | async)">offline</span>
+			</div>
 		</div>
-	</div> 
-	
+	</div>
+	<div id="content" style="padding-left: 10px; padding-right: 10px;">
+		<router-outlet></router-outlet>
+	</div>
+	<div id="footer" style="padding-left: 10px; padding-right: 10px;">
+	</div>	
 </div>
-
-<md-progress-bar mode="indeterminate" *shellRender></md-progress-bar>
-<router-outlet></router-outlet>
