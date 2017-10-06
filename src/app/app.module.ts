@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 import { BlogRollComponent } from './blog-roll/blog-roll.component';
 import { AboutComponent } from './about/about.component';
 import { ErrorComponent } from './error/error.component';
+import { ImprintComponent } from './imprint/imprint.component';
 
 
 const appRoutes: Routes = [
     { path: 'blog', component: BlogRollComponent },
+    { path: 'imprint', component: ImprintComponent },
     { path: 'about', component: AboutComponent },
     {
         path: '',
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
         AppComponent,
         BlogRollComponent,
         AboutComponent,
-        ErrorComponent
+        ErrorComponent,
+        ImprintComponent
     ],
     imports: [
         BrowserModule,

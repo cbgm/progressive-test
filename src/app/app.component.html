@@ -1,7 +1,7 @@
-<div id="wrapper">
+<div id="wrapper" style="max-width: 900px; margin: 0 auto; height: 100%;">
 	<md-progress-bar mode="indeterminate" *shellRender></md-progress-bar>
-	<div id="header" style="padding-left: 10px; padding-right: 10px; background: blue;">
-		<div id="navigation" style="padding-top: 20px; padding-bottom: 20px; display: flex;">
+	<div id="header" style="padding-top: 20px; padding-bottom: 20px; padding-left: 10px; padding-right: 10px; background: blue; ">
+		<div id="navigation" style="display: flex;">
 			<span id="title" style="font-size: 1.3em; color: white; float: left;">{{title}}</span>
 			<div id="links" style="float: left; margin-left: 50px; display: flex;">
 				<span routerLink="/blog" routerLinkActive="active" style="color:white; margin-right: 10px; align-self: flex-end;">test1</span>
@@ -10,9 +10,12 @@
 			</div>
 		</div>
 	</div>
-	<div id="content" style="padding-left: 10px; padding-right: 10px;">
+	<div id="content" style="padding-left: 10px; padding-right: 10px; min-height: 100%; padding-top: 20px; height: 100%;">
 		<router-outlet></router-outlet>
 	</div>
-	<div id="footer" style="padding-left: 10px; padding-right: 10px;">
+	<div id="footer" style="padding-left: 10px; padding-right: 10px; height: 40px;">
+		<div id="copyright" style="float: left;">&copy; 2010<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Company.</div>
+		<div id="imp-link" style="float: right;"><span routerLink="/imprint" routerLinkActive="active">Impressum</span></div>
+		<p style="clear: both;"></p>
 	</div>	
 </div>
